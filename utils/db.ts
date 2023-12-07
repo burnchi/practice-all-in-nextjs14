@@ -1,11 +1,15 @@
 import mongoose from "mongoose";
 
 const connect = async () => {
-    try {
-        await mongoose.connect("mongodb://127.0.0.1:27017/all-in-one");
-    } catch (error) {
-        throw new Error("Connection failed!");
-    }
+    // 有连接就不再连接
+  if (mongoose.connections[0].readyState) return;
+
+  try {
+    await mongoose.connect(process.env.MONGO_URL as string);
+    console.log("Mongo Connection successfully established.");
+  } catch (error) {
+    throw new Error("Error connecting to Mongoose");
+  }
 };
 
 export default connect;

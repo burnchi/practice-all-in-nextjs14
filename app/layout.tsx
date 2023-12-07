@@ -22,13 +22,14 @@ export default function RootLayout({
     <html lang="en" >
       <body className={inter.className}>
         <ThemeProvider>
-          <AuthProvider>
+          {/* <AuthProvider> */}
+
             <div className='max-w-[1200px] mx-auto border p-5 min-h-screen relative'>
               <Header></Header>
               <DarkModeToggle></DarkModeToggle>
               {children}
             </div>
-          </AuthProvider>
+          {/* </AuthProvider> */}
         </ThemeProvider>
       </body>
     </html>

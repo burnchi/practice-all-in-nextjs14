@@ -12,8 +12,16 @@ const Header = () => {
             url:'/fetch'
         },
         {
+            title:"Register",
+            url:'/register'
+        },
+        {
             title:"Auth",
             url:'/auth'
+        },
+        {
+            title:"Dashboard",
+            url:'/dashboard'
         },
     ]
   return (

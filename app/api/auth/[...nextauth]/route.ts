@@ -6,7 +6,7 @@ import User from "@/models/User";
 import connect from "@/utils/db";
 import bcrypt from 'bcrypt'
 
-const handler = NextAuth({
+export const authOptions = {
     providers: [
         CredentialsProvider({
             id: "credentials",
@@ -60,10 +60,9 @@ const handler = NextAuth({
             clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
         }),
     ],
-    pages: {
-        error: "/dashboard/login",
-    },
 
-});
+}
+
+const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };
